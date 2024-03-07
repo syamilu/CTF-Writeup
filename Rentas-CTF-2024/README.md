@@ -1,8 +1,10 @@
 # Jerung Biru Rentas CTF by Rawsec Writeup
-## Teammates
-1. 
-
 Hello guys, this is my team(JerungBiru) writeup for some challenges that we solve during the CTF. Here list of the challenges and together with its type :
+
+## My Teammates
+1. [Alif Haziq](https://github.com/LipJiq)
+2. [Elyas Asmad](https://github.com/ElyasAsmad)
+3. Syamil Yusof(Me)
 
 ### RE
 [Resign Letter](https://github.com/syamilu/CTF-Writeup/blob/master/Rentas-CTF-2024/rENTAS%20CTF%20WriteUp%20(Resign%20Letter).pdf)
