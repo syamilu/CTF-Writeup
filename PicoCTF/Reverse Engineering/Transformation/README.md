@@ -7,4 +7,9 @@
 Inside "enc" file = `灩捯䍔䙻ㄶ形楴獟楮獴㌴摟潦弸弲㘶㠴挲ぽ`
 
 ## Solution
-1. 
+### Easy Way
+1. Open cyberchef
+2. Use magic to decode
+
+### Hard Way 
+> Need to do some coding 
