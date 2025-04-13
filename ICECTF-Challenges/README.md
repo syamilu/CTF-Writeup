@@ -18,7 +18,7 @@ Welcome to the official writeup for the **Web Exploitation** category of **ICECT
 ## 👥 Credits
 
 Organized by [**SIG Cybersecurity IIUM**](https://www.linkedin.com/company/sigcyberseciium) in collaboration with [**ICE**](https://www.linkedin.com/company/ice-cybersecurity-enthusiast)  
-Sponsored by [**REHACK**](https://www.linkedin.com/company/rehack-xyz), [**ASK Pentest**](https://www.linkedin.com/company/ask-pentest/), [**Azmi Production**](https://www.linkedin.com/company/azmi-productions/), [**Forthify**](https://www.linkedin.com/company/forthify-technologies/) and [**DeTA**](https://www.linkedin.com/company/developertanahair)
+Sponsored by [**RE:HACK**](https://www.linkedin.com/company/rehack-xyz), [**ASK Pentest**](https://www.linkedin.com/company/ask-pentest/), [**Azmi Production**](https://www.linkedin.com/company/azmi-productions/), [**Forthify**](https://www.linkedin.com/company/forthify-technologies/) and [**DeTA**](https://www.linkedin.com/company/developertanahair)
 Web Challenges by [@syamilu](https://github.com/syamilu)  
 Shoutout to all ICECTF players & the community!
 
