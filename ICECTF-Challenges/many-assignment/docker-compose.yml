@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+    app:
+        build: .
+        ports:
+            - "3002:80"
+        volumes:
+            - .:/var/www/html
+        environment:
+            - APP_ENV=local
+            - APP_DEBUG=false
+            - APP_KEY=base64:tJF4n+JQ/L1LPMQEMsIUZ+7USnnRUwwkBk8Qf++MDGk=
+            - APACHE_DOCUMENT_ROOT:/var/www/html/public

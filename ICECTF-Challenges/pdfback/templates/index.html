@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Feedback Portal</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f8;
+            color: #333;
+        }
+
+        .hero {
+            background-color: #007BFF;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-section {
+            margin-top: -30px;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-container {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #333;
+            text-align: center;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .fake-feedback {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 15px;
+        }
+
+        .fake-feedback li {
+            background-color: #f9f9f9;
+            border-left: 4px solid #007BFF;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero">
+        <h1>Welcome to Feedback Portal</h1>
+        <p>Your thoughts help us grow. Submit anonymous feedback and download it as a PDF for your records.</p>
+    </div>
+
+    <div class="form-section">
+        <div class="form-container">
+            <h2>Submit Feedback</h2>
+            <form method="POST" action="/submit">
+                <textarea name="feedback" maxlength="200" placeholder="Type your feedback here..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
+            <hr>
+            <h3>What others are saying:</h3>
+            <ul class="fake-feedback">
+                <li>“Neat site! Love the instant PDF download.” – devuser94</li>
+                <li>“Finally, a place I can rant anonymously. 10/10.” – quietstorm</li>
+                <li>“Didn’t expect a PDF, but okay 🤷‍♀️” – notabot</li>
+                <li>“Clean interface, easy to use.” – someonelegit</li>
+                <li>“Would be cool if the PDF supported markdown 😅” – markdownfan</li>
+                <li>“I submitted weird symbols and it worked fine lol.” – totallynormal</li>
+                <li>“Still trying to break it. So far, nothing.” – curiouscat</li>
+                <li>“Can I get a copy of my feedback emailed too?” – user101</li>
+                <li>“Just testing some unicode: ★彡” – unicodewarrior</li>
+            </ul>
+
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Feedback Portal. Built with love and templates.
+    </footer>
+</body>
+
+</html>

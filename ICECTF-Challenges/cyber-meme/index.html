@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ICECTF Meme Gallery</title>
+    <style>
+        :root {
+            --bg: #f5f5f5;
+            --text: #222;
+            --accent: #ff4081;
+        }
+
+        body.dark {
+            --bg: #1e1e1e;
+            --text: #f5f5f5;
+            --accent: #64ffda;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        header {
+            padding: 2rem;
+            background: var(--accent);
+            color: #fff;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 2rem;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            color: #888;
+        }
+
+        .toggle-btn {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
+    <header>😂 ICECTF Meme Gallery 😂</header>
+
+    <div class="gallery">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme1.png" alt="Meme 1">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme2.png" alt="Meme 2">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme3.png" alt="Meme 3">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme4.png" alt="Meme 4">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme5.png" alt="Meme 5">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme6.png" alt="Meme 6">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme7.png" alt="Meme 7">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme8.png" alt="Meme 8">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme9.png" alt="Meme 9">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme10.png" alt="Meme 10">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme11.png" alt="Meme 11">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme12.png" alt="Meme 12">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme13.png" alt="Meme 13">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme14.png" alt="Meme 14">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme15.png" alt="Meme 15">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme16.png" alt="Meme 16">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme17.png" alt="Meme 17">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme18.png" alt="Meme 18">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme19.png" alt="Meme 19">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme20.png" alt="Meme 20">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme21.png" alt="Meme 21">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme22.png" alt="Meme 22">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme23.png" alt="Meme 23">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme24.png" alt="Meme 24">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme25.png" alt="Meme 25">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme26.png" alt="Meme 26">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme27.png" alt="Meme 27">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme28.png" alt="Meme 28">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme29.png" alt="Meme 29">
+        <img src="https://meme-icectf-bucket.s3.ap-southeast-1.amazonaws.com/icectf-meme/meme30.png" alt="Meme 30">
+    </div>
+
+
+    <div class="footer">
+        Enjoy the memes. That’s all there is here. Probably.
+    </div>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle("dark");
+        }
+    </script>
+</body>
+
+</html>

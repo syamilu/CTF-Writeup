@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Feedback Preview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .preview-container {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        h3 {
+            margin-top: 0;
+            color: #28a745;
+        }
+
+        blockquote {
+            background-color: #f9f9f9;
+            border-left: 5px solid #ccc;
+            margin: 20px 0;
+            padding: 10px 20px;
+            font-style: italic;
+            color: #555;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .badge {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .hint {
+            margin-top: 15px;
+            font-size: 13px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="preview-container">
+        <h3>✅ Your feedback has been recorded!</h3>
+        <blockquote>{{ feedback }}</blockquote>
+
+        <form method="POST" action="/generate_pdf">
+            <input type="hidden" name="feedback" value="{{ feedback }}">
+            <button type="submit">Download PDF</button>
+        </form>
+
+        <div class="badge">📄 Powered by SmartRender v2.1</div>
+        <div class="hint">Need to edit your feedback? Sorry, no takebacks. What’s rendered is rendered.</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>SEO Scanner Pro™</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>🧠 SEO Scanner Pro™</h1>
+    <p>Instantly analyze my website's title tag and improve visibility!</p>
+    <button onclick="scanWebsite()">🔍 Scan My Website</button>
+    <div id="output" class="output"></div>
+    <div>Have questions? See our <a href="/faq">FAQs</a></div>
+  </div>
+
+  <script>
+    async function scanWebsite() {
+      const res = await fetch("/api/scan", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer seoscannerprotoken"
+        },
+        body: JSON.stringify({ site: "https://blog.syamilyusof.com" })
+      });
+
+      const data = await res.json();
+      const out = document.getElementById("output");
+      out.innerHTML = data.result || data.error;
+    }
+  </script>0
+</body>
+
+</html>
