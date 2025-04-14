@@ -52,5 +52,5 @@ Shoutout to all ICECTF players & the community!
 7. Boom, theres our flag at the bottom of the file!
 ```Flag : ICECTF{g3t_0ut_0f_my_buck3t_a6b7ssj}```
 > [!TIP]
-> Reconnaissance experience where you might feel boring or "leceh" but in real pentesting or bug bounty work, it is where the gold often lies. Recon is the stage where you gather information, understand the system and look for anything that stands out. In this case, sometimes sensitive informations are leaked when some cloud misconfigurations happen. It was a small "meme.txt" detail that led to discovering a big flag hehe.
+> Reconnaissance might feel boring or "leceh" but in real pentesting or bug bounty work, it is where the gold often lies. Recon is the stage where we gather information, understand the system and look for anything that stands out. In this case, sometimes sensitive informations are leaked when some cloud misconfigurations happen. It was a small "meme.txt" detail that led to discovering a big flag hehe.
 > **Good recon = good results**. The best hackers are the most observant.
