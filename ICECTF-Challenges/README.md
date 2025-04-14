@@ -9,7 +9,7 @@ Welcome to the official writeup for the **Web Exploitation** category of **ICECT
 | [Cyber Meme](#cyber-meme)        | Meme-filled site with hidden flag | S3 Misconfiguration        | Easy       |
 | Misdirection       | Confusing redirects               | Redirect (P/S: Guessy)  | Easy     |
 | PDFBack            | PDF generation via user input     | SSTI (Server-Side Template Injection) | Easy     |
-| SEO Scanner Pro    | Internal site scanner             | SSRF (Server-Side Request Forgery)    | Medium       |
+| [SEO Scanner Pro](#seo-scanner)    | Internal site scanner             | SSRF (Server-Side Request Forgery)    | Medium       |
 | Many Assignment    | Laravel admin access              | Mass Assignment (Laravel)  | Medium     |
 
 > [!NOTE]
@@ -56,7 +56,7 @@ Shoutout to all ICECTF players & the community!
 > **Good recon = good results**. The best hackers are the most observant.
 
 
-# SEO Scanner Pro
+# SEO Scanner Pro<a name="seo-scanner"></a>
 Description :
 Our SEO team uses a fancy in-house tool called SEO Scanner Pro™ to analyze websites by fetching their metadata — like title tags, keywords, etc.
 It’s clean. It’s shiny. It’s safe... right?
