@@ -8,7 +8,7 @@ Welcome to the official writeup for the **Web Exploitation** category of **ICECT
 |--------------------|----------------------------------|----------------------------|------------|
 | [Cyber Meme](#cyber-meme)        | Meme-filled site with hidden flag | S3 Misconfiguration        | Easy       |
 | Misdirection       | Confusing redirects               | Redirect (P/S: Guessy)  | Easy     |
-| PDFBack            | PDF generation via user input     | SSTI (Server-Side Template Injection) | Easy     |
+| [PDFBack](#pdfback)            | PDF generation via user input     | SSTI (Server-Side Template Injection) | Easy     |
 | [SEO Scanner Pro](#seo-scanner)    | Internal site scanner             | SSRF (Server-Side Request Forgery)    | Medium       |
 | Many Assignment    | Laravel admin access              | Mass Assignment (Laravel)  | Medium     |
 
@@ -54,6 +54,43 @@ Shoutout to all ICECTF players & the community!
 > [!TIP]
 > Reconnaissance might feel boring or "leceh" but in real pentesting or bug bounty work, it is where the gold often lies. Recon is the stage where we gather information, understand the system and look for anything that stands out. In this case, sometimes sensitive informations are leaked when some cloud misconfigurations happen. It was a small "meme.txt" detail that led to discovering a big flag hehe.
 > **Good recon = good results**. The best hackers are the most observant.
+
+# PDFBack<a name="pdfback"></a>
+Description :
+📄 PDFBack is a sleek feedback system built for a startup that loves hearing from users. Every piece of feedback submitted gets automatically turned into a downloadable PDF for "archival purposes."
+You don’t need to log in. Just write your thoughts, hit submit, and you'll get a pretty little PDF with your message.
+
+Hint 1 : Wait how do they print the pdf? Using template probably?
+
+1. In this challenge, we were given a website that we can submit a feedback and download the pdf. There are actually two ways to solve this challenge, but im gonna go with intended way which is Server Side Template Injection. Let start with the payload. To know whether the input is vulnerable with SSTI, we can use some payload from [Payload All Things](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/README.md)
+2. The infamous one is ```{{7*7}}``` payload where if the server return ```49``` we know that it is vulnerable to Server Side Template Injection. Lets start injecting it in our feedback.
+
+  ![image](https://github.com/user-attachments/assets/56aa35e6-be77-46c6-bd37-ae99a680dcb2)
+
+3. Interestingly it doesnt reflect in our record
+
+   ![image](https://github.com/user-attachments/assets/ec078304-6fba-41a0-a23f-f1c7bae610f2)
+
+4. Yet, in the challenge description they do say something about pretty little pdf with our message. Maybe we can try to download the pdf first?
+
+    ![image](https://github.com/user-attachments/assets/2b84f991-c5e0-4bf1-9556-8d4e2feecb1d)
+
+5. And boom, it does reflect in our downloaded pdf eventhough it doesnt reflect before our download the pdf. Well tricky right? Some participants thought that it doesnt work then they just go back without downloading it. Intended hehe.
+6. Now we can just try our payload, we can even ask chatgpt help us generate the payload. Remember the hint also about template isn't it? So heres the payload that i use to list all files.
+   ```
+   {{ self._TemplateReference__context.cycler.__init__.__globals__.os.popen('ls').read() }}
+   ```
+
+   ![image](https://github.com/user-attachments/assets/db3812b0-d85c-451c-b8df-6a81e7a6acdf)
+
+7. Vroom vroom we can list it. Now we can just cat the flag.txt! Lesgoo
+   ```
+    {{ self._TemplateReference__context.cycler.__init__.__globals__.os.popen('cat flag.txt').read() }}
+   ```
+
+    ![image](https://github.com/user-attachments/assets/82a1c33b-9ae6-442a-b6ea-09a88be86035)
+
+8. And booom we got the flag! ```Flag :ICECTF{n0t_s4n1t1z3d_t3mpl4t3s_4r3_d4ng3r0us}```
 
 
 # SEO Scanner Pro<a name="seo-scanner"></a>
