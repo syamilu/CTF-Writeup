@@ -10,7 +10,7 @@ Welcome to the official writeup for the **Web Exploitation** category of **ICECT
 | Misdirection       | Confusing redirects               | Redirect (P/S: Guessy)  | Easy     |
 | [PDFBack](#pdfback)            | PDF generation via user input     | SSTI (Server-Side Template Injection) | Easy     |
 | [SEO Scanner Pro](#seo-scanner)    | Internal site scanner             | SSRF (Server-Side Request Forgery)    | Medium       |
-| Many Assignment    | Laravel admin access              | Mass Assignment (Laravel)  | Medium     |
+| [Many Assignment](#many-assignment)    | Laravel admin access              | Mass Assignment (Laravel)  | Medium     |
 
 > [!NOTE]
 > 💡 Each writeup includes: challenge description, solution steps, exploit PoC, and flag.
@@ -202,3 +202,32 @@ Hint 2 : So in house means in the same server right?
 
 > [!TIP]
 > Patience & Persistence is important in hacking. A good hacker isn’t always the smartest — they’re the most patient, the most curious, and the most relentless.
+
+
+# Many Assignments<a name="many-assignment"></a>
+Description :
+Welcome to ManyAssignment Inc., the revolutionary startup building portals no one asked for. We've just launched our internal dashboard, and of course, it's secure — because our junior dev said so. Can you sneak your way into the admin area and uncover the secret hidden in plain sight?
+
+1. In this challenge we were given a source code of the website built using Laravel Framework. Laravel is using Model View Controller structure. The simple way to think : Model is for database, View for Frontend and Controller is the API. Well obviously theres deeper meaning for each but im not gonna touch about it. Lets start with looking into our source code.
+2. In routes/web.php, we can see the list of routes that are available and we can access from public.
+
+    ![image](https://github.com/user-attachments/assets/14746185-a3f5-4472-b64d-7d0f2eeda63e)
+
+3. Well obviously we see one routes that we interested with which is **/admin/flag**. But if we try to access it, we will return with **403 Unauthorized** which indicate we does'nt have any access to the page. Now lets take a look to the Controller that return the flag page.
+
+    ![image](https://github.com/user-attachments/assets/106073a0-11b8-4cd6-8fff-82d93e0786e5)
+
+4. Based on the code, we know that it will get current user id and check whether the user is admin or not. It will only return the page if the user is admin. Now how do we become an admin? Let's take a look at our registration controller, model and migration file :
+
+  a. /app/Http/Controllers/UserController.php
+    ![image](https://github.com/user-attachments/assets/ba2a8b7e-60a1-4f34-b577-0baa6c434eb0)
+
+  b. /app/Models/User.php
+    ![image](https://github.com/user-attachments/assets/cb47b9a9-4ac6-46fd-8ec6-ccbe8dadee95)
+
+  c. /database/migrations/0001_01_01_000000_create_users_table.php
+    ![image](https://github.com/user-attachments/assets/0a566072-60e8-4fd6-8414-ecee265624af)
+
+
+5. Interesting thing that we can see is that in User.php, there is no attributes for the User while there are many attributes in the database table including is_admin. Now in this challenge, there is one vulnerability that we call mass assignment where we doesnt validate user input in the registration controllers (this line in the Controller :```User::create($request->all());```). Now you can intercept registration process using burpsuite and include is_admin attributes in the form.
+6. TBC
