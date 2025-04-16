@@ -219,15 +219,39 @@ Welcome to ManyAssignment Inc., the revolutionary startup building portals no on
 
 4. Based on the code, we know that it will get current user id and check whether the user is admin or not. It will only return the page if the user is admin. Now how do we become an admin? Let's take a look at our registration controller, model and migration file :
 
-  a. /app/Http/Controllers/UserController.php
+    a. /app/Http/Controllers/UserController.php
+    
     ![image](https://github.com/user-attachments/assets/ba2a8b7e-60a1-4f34-b577-0baa6c434eb0)
-
-  b. /app/Models/User.php
+  
+    b. /app/Models/User.php
+    
     ![image](https://github.com/user-attachments/assets/cb47b9a9-4ac6-46fd-8ec6-ccbe8dadee95)
-
-  c. /database/migrations/0001_01_01_000000_create_users_table.php
+  
+    c. /database/migrations/0001_01_01_000000_create_users_table.php
+    
     ![image](https://github.com/user-attachments/assets/0a566072-60e8-4fd6-8414-ecee265624af)
 
 
 5. Interesting thing that we can see is that in User.php, there is no attributes for the User while there are many attributes in the database table including is_admin. Now in this challenge, there is one vulnerability that we call mass assignment where we doesnt validate user input in the registration controllers (this line in the Controller :```User::create($request->all());```). Now you can intercept registration process using burpsuite and include is_admin attributes in the form.
-6. TBC
+> [!NOTE]
+> Mass Assignment in Laravel happens when users can send unexpected fields in a request, and Laravel blindly saves them to the database using methods like:
+> ```php
+> Model::create($request->all());
+> ```
+> If you don’t protect the model, attackers can inject fields like is_admin, role, or status and gain unauthorized access or modify sensitive data.
+
+  ![image](https://github.com/user-attachments/assets/f79f02bf-0bdf-4b3e-9efe-9f997ffb19cf)
+
+7. The highlighted one is the attributes that we add. Now lets try to register and login to see whether we can inject the is_admin attributes in the registration.
+
+     ![image](https://github.com/user-attachments/assets/b1cb908b-6695-4354-ba3b-eb0cadfcf13a)
+
+8. What we can see is that we were redirected to login page. We can assume that our registration is successful. Lets try to login using our registered details.
+
+     ![image](https://github.com/user-attachments/assets/5169e184-b091-4398-af85-6e08cbceae18)
+
+9. And boom, we are logged in as admin. Now lets just access our flag routes which is **/admin/flag**
+
+      ![image](https://github.com/user-attachments/assets/554725f0-789e-4b77-a707-7d53aed4bb56)
+
+10. And voila, theres our flag! Due to some technical, i forgot to change the flag to our ICECTF format. But anyway, a flag is still a flag isn't it? ```Flag : flag{mass_assignment_master}```
